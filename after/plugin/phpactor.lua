@@ -1,0 +1,89 @@
+--
+-- require'lspconfig'.phpactor.setup{
+-- 	on_attach = on_attach,
+-- 	init_options = {
+-- 		["language_server_phpstan.enabled"] = true,
+-- 		["language_server_psalm.enabled"] = true,
+-- 	}
+-- }
+--
+-- local Float = require "plenary.window.float"
+--
+-- vim.cmd([[
+-- 	augroup PhpactorMappings
+-- 		au!
+-- 		au FileType php nmap <buffer> gd :PhpactorGotoDefinition edit<CR>
+-- 		au FileType php nmap <buffer> K :PhpactorHover<CR>
+-- 		au FileType php nmap <buffer> gr :PhpactorFindReferences<CR>
+-- 		au FileType php nmap <buffer> <Leader>aic :PhpactorImportClass<CR>
+--
+-- 		au FileType php nmap <buffer> <Leader>aaa :TestFuckingWindow edit<CR>
+-- 		au FileType php nmap <buffer> <Leader>amf :PhpactorMoveFile<CR>
+-- 		au FileType php nmap <buffer> <Leader>acf :PhpactorCopyFile<CR>
+--
+-- 		au FileType php nmap <buffer> <Leader>ace :PhpactorClassExpand<CR>
+-- 		au FileType php nmap <buffer> <Leader>amc :PhpactorImportMissingClasses<CR>
+-- 		au FileType php nmap <buffer> <Leader>am :PhpactorContextMenu<CR>
+-- 		au FileType php nmap <buffer> <Leader>an :PhpactorNavigate<CR>
+-- 		au FileType php nmap <buffer> <Leader>at :PhpactorTransform<CR>
+-- 		au FileType php nmap <buffer> <Leader>acn :PhpactorClassNew<CR>
+-- 		au FileType php nmap <buffer> <Leader>aci :PhpactorClassInflect<CR>
+-- 		au FileType php nmap <buffer> <silent> <Leader>ee :PhpactorExtractExpression<CR>
+-- 		au FileType php vmap <buffer> <silent> <Leader>ee :<C-u>PhpactorExtractExpression<CR>
+-- 		au FileType php vmap <buffer> <silent> <Leader>em :<C-u>PhpactorExtractMethod<CR>
+-- 	augroup END
+-- ]])
+--
+-- vim.cmd([[
+--     augroup LspPhpactor
+--       autocmd!
+--       autocmd Filetype php command! -nargs=0 LspPhpactorReindex lua vim.lsp.buf_notify(0, "phpactor/indexer/reindex",{})
+--       autocmd Filetype php command! -nargs=0 LspPhpactorConfig lua LspPhpactorDumpConfig()
+--       autocmd Filetype php command! -nargs=0 LspPhpactorStatus lua LspPhpactorStatus()
+--       autocmd Filetype php command! -nargs=0 LspPhpactorBlackfireStart lua LspPhpactorBlackfireStart()
+--       autocmd Filetype php command! -nargs=0 LspPhpactorBlackfireFinish lua LspPhpactorBlackfireFinish()
+--     augroup END
+-- ]])
+--
+-- local function showWindow(title, syntax, contents)
+--     local out = {};
+--     for match in string.gmatch(contents, "[^\n]+") do
+--         table.insert(out, match);
+--     end
+--
+--     local float = Float.percentage_range_window(0.6, 0.4, { winblend = 0 }, {
+--         title = title,
+--         topleft = "┌",
+--         topright = "┐",
+--         top = "─",
+--         left = "│",
+--         right = "│",
+--         botleft = "└",
+--         botright = "┘",
+--         bot = "─",
+--    })
+--
+--     vim.api.nvim_buf_set_option(float.bufnr, "filetype", syntax)
+--     vim.api.nvim_buf_set_lines(float.bufnr, 0, -1, false, out)
+-- end
+--
+--
+-- vim.keymap.set('n', '<leader>tat',"<cmd>lua TestFuckingWindow()<cr>", { desc="test" })
+-- function TestFuckingWindow()
+-- 	local results, _ = vim.lsp.buf_request_sync(0, "phpactor/hover", {["return"]=true})
+-- 	showWindow('test', 'php', results)
+-- end
+--
+-- function LspPhpactorStatus()
+--     local results, _ = vim.lsp.buf_request_sync(0, "phpactor/status", {["return"]=true})
+--     for _, res in pairs(results or {}) do
+--         showWindow("Phpactor Status", "markdown", res["result"])
+--     end
+-- end
+--
+-- function LspPhpactorBlackfireStart()
+--     local _, _ = vim.lsp.buf_request_sync(0, "blackfire/start", {})
+-- end
+-- function LspPhpactorBlackfireFinish()
+--     local _, _ = vim.lsp.buf_request_sync(0, "blackfire/finish", {})
+-- end
