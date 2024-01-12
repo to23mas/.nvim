@@ -56,7 +56,7 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 vim.keymap.set('i', "<C-@>", "<C-Space>")
 
-vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g<Left>]])
+vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
 
 vim.keymap.set({'n', 'v', 'i'}, '<C-S-i>',
 	function ()
