@@ -5,6 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system {
 		'git',
@@ -24,9 +25,10 @@ require'lazy'.setup({
 
 	---dependencies
 	'nvim-lua/plenary.nvim',
+	---devicons
 	'nvim-tree/nvim-web-devicons',
 
-	---colorscheme
+	---colorschemes
 	{ 'rose-pine/neovim', name = 'rose-pine' },
 	'rebelot/kanagawa.nvim',
 	{ 'catppuccin/nvim', as = 'catppuccin', priority = 1000},
@@ -97,6 +99,9 @@ require'lazy'.setup({
 		},
 	},
 
-	-- spell checking
+	---clojure
+	{ 'Olical/conjure', ft = { "clojure" } },
+
+	---spell checking
 	'kamykn/spelunker.vim',
 })
