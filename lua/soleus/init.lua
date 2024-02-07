@@ -25,7 +25,7 @@ require'lazy'.setup({
 
 	---dependencies
 	'nvim-lua/plenary.nvim',
-	---devicons
+	---devicon
 	'nvim-tree/nvim-web-devicons',
 
 	---colorschemes

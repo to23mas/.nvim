@@ -546,3 +546,6 @@ foaf
 gmail
 TokenVerifier
 matcher
+IS_WEBAPI_RUNNING
+WEBAPI
+webapi
