@@ -31,6 +31,7 @@ require'lazy'.setup({
 	---colorschemes
 	{ 'rose-pine/neovim', name = 'rose-pine' },
 	'rebelot/kanagawa.nvim',
+	'Shatur/neovim-ayu',
 	{ 'catppuccin/nvim', as = 'catppuccin', priority = 1000},
 
 	---lualine
