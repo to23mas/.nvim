@@ -20,8 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require'lazy'.setup({
 
-	---zen
-	'folke/zen-mode.nvim',
+	---no neck pain
+	{"shortcuts/no-neck-pain.nvim", version = "*"},
 
 	---dependencies
 	'nvim-lua/plenary.nvim',
