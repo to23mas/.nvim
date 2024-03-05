@@ -20,13 +20,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require'lazy'.setup({
 
-	---no neck pain
-	{"shortcuts/no-neck-pain.nvim", version = "*"},
-
 	---dependencies
 	'nvim-lua/plenary.nvim',
 	---devicon
 	'nvim-tree/nvim-web-devicons',
+	---no neck pain
+	{"shortcuts/no-neck-pain.nvim", version = "*"},
+
 
 	---colorschemes
 	{ 'rose-pine/neovim', name = 'rose-pine' },
@@ -46,6 +46,15 @@ require'lazy'.setup({
 	---treesitter
 	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 
+	---undo-tree history
+	{
+		"jiaoshijie/undotree",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = true,
+		keys = {
+			{ "<leader>tu", "<cmd>lua require('undotree').toggle()<cr>" },
+		},
+	},
 	---whichkey
 	{
 		'folke/which-key.nvim',

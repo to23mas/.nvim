@@ -14,4 +14,4 @@ vim.keymap.set('n', '<leader>pS', function () builtin.grep_string({ hidden=true,
 vim.keymap.set('n', '<leader>pw', function () builtin.grep_string() end, {desc= "search word" })
 vim.keymap.set('n', '<leader>pb', function () builtin.buffers() end, {desc= "search [b]uffers" })
 vim.keymap.set('n', '<leader>ph', function () builtin.help_tags() end, {desc= "[h]elp search" })
-vim.keymap.set('n', '<leader>pm', function () builtin.makrs() end, {desc= "marks" })
+vim.keymap.set('n', '<leader>pm', function () builtin.marks() end, {desc= "marks" })

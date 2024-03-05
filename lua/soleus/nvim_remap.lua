@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 
 --EX, so ,w
 --FILES mapping
-vim.keymap.set({'n','v'}, '<leader>fs', '<Cmd>w<Cr>', {desc='save [f]ile'})
+-- vim.keymap.set({'n','v'}, '<leader>fs', '<Cmd>w<Cr>', {desc='save [f]ile'})
 vim.keymap.set({'n','v'}, '<leader>fS', '<Cmd>so<Cr>', {desc='source [o]ut'})
 vim.keymap.set({'n','v'}, '<leader>pe', '<Cmd>Ex<Cr>', {desc='netrw'})
 vim.keymap.set({'n','v'}, '<leader>ev', '<Cmd>Vex<Cr>', {desc='netrw to split'})
@@ -56,7 +56,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 vim.keymap.set('i', "<C-@>", "<C-Space>")
 
-vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
 
 vim.keymap.set({'n', 'v', 'i'}, '<C-S-i>',
 	function ()
@@ -78,8 +77,6 @@ vim.keymap.set('v', "<C-0>", "lmao<Esc>i(<Esc>`aa)<Esc>")
 vim.keymap.set('v', "<C-]>", "lmao<Esc>i[<Esc>`aa]<Esc>")
 vim.keymap.set('v', "<C-9>", "lmao<Esc>i{<Esc>`aa}<Esc>")
 
--- terminal
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
-vim.keymap.set('t', '<leader>cd', '<cmd>cd %<CR>')
-
+-- snippets
+vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>slf", "ifile_put_contents('file.txt', json_decode($));<Esc>==F$a")

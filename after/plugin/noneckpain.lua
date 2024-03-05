@@ -1,9 +1,6 @@
 require("no-neck-pain").setup({
 	width = 150,
 	buffers = {
-		scratchPad = {
-			enabled = true,
-		},
 		right = {
 			enabled = false,
 		},
