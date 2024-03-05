@@ -79,4 +79,4 @@ vim.keymap.set('v', "<C-9>", "lmao<Esc>i{<Esc>`aa}<Esc>")
 
 -- snippets
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>slf", "ifile_put_contents('file.txt', json_decode($));<Esc>==F$a")
+vim.keymap.set("n", "<leader>slf", "ifile_put_contents('file.json', json_decode($));<Esc>==F$a")
