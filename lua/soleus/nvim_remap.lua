@@ -87,4 +87,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- snippets
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>alf", "ifile_put_contents('file.json', json_decode($));<Esc>==F$a")
+vim.keymap.set("n", "<leader>alf", "ifile_put_contents('file.json', json_decode($));<Esc>F$a")
