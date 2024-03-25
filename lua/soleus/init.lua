@@ -84,9 +84,6 @@ require'lazy'.setup({
 	---hop
 	{'phaazon/hop.nvim', branch = 'v2'},
 
-	---oil
-	'stevearc/oil.nvim',
-
 	--- lsp
 	{
 		'neovim/nvim-lspconfig',
@@ -110,7 +107,7 @@ require'lazy'.setup({
 	},
 
 	---clojure
-	{ 'Olical/conjure', ft = { "clojure" } },
+	{ 'Olical/conjure', ft = { "clojure", "fennel" } },
 
 	---spell checking
 	'kamykn/spelunker.vim',
