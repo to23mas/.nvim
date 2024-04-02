@@ -2,10 +2,10 @@ vim.g.mapleader = " "
 
 --EX, so ,w
 --FILES mapping
--- vim.keymap.set({'n','v'}, '<leader>fs', '<Cmd>w<Cr>', {desc='save [f]ile'})
 vim.keymap.set({'n','v'}, '<leader>fS', '<Cmd>so<Cr>', {desc='source [o]ut'})
-vim.keymap.set({'n','v'}, '<leader>pe', '<Cmd>Rex<Cr>', {desc='netrw'})
-vim.keymap.set({'n','v'}, '<leader>ev', '<Cmd>Vex<Cr>', {desc='netrw to split'})
+vim.keymap.set({'n','v'}, '<leader>pe', '<Cmd>Ex<Cr>', {desc='netrw'})
+vim.keymap.set({'n','v'}, '<leader>pl', '<Cmd>Lex<Cr>', {desc='left explore'})
+vim.keymap.set({'n','v'}, '<leader>pv', '<Cmd>Vex<Cr>', {desc='netrw to split'})
 vim.keymap.set('n', '<leader>fn', '<cmd>enew<cr>', {desc='[n]ew file' })
 
 --WINDOWS mapping
