@@ -1,11 +1,12 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 --EX, so ,w
 --FILES mapping
 vim.keymap.set({'n','v'}, '<leader>fS', '<Cmd>so<Cr>', {desc='source [o]ut'})
 vim.keymap.set({'n','v'}, '<leader>pe', '<Cmd>Ex<Cr>', {desc='netrw'})
-vim.keymap.set({'n','v'}, '<leader>pl', '<Cmd>Lex<Cr>', {desc='left explore'})
-vim.keymap.set({'n','v'}, '<leader>pv', '<Cmd>Vex<Cr>', {desc='netrw to split'})
+vim.keymap.set({'n','v'}, '<leader>pr', '<Cmd>Rex<Cr>', {desc='netrw cursor on file'})
+
 vim.keymap.set('n', '<leader>fn', '<cmd>enew<cr>', {desc='[n]ew file' })
 
 --WINDOWS mapping
@@ -67,15 +68,18 @@ vim.keymap.set({'n', 'v', 'i'}, '<C-S-i>',
 vim.keymap.set({'n', 'v', 'i'}, '<C-S-d>',
 	function ()
 		local width = vim.api.nvim_win_get_width(0)
-		vim.api.nvim_win_set_width(0, width - 10)
+		vim.api.nvim_win_set_width(0, width + 10)
 	end,
 	{ desc='enlarge window'})
 
-vim.keymap.set('v', "<C-'>", "lmao<Esc>i'<Esc>`aa'<Esc>")
-vim.keymap.set('v', "<C-S-'>", 'lmao<Esc>i"<Esc>`aa"<Esc>')
-vim.keymap.set('v', "<C-0>", "lmao<Esc>i(<Esc>`aa)<Esc>")
-vim.keymap.set('v', "<C-]>", "lmao<Esc>i[<Esc>`aa]<Esc>")
-vim.keymap.set('v', "<C-9>", "lmao<Esc>i{<Esc>`aa}<Esc>")
+-- yanking highlight
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "highlight when yanking text",
+	group = vim.api.nvim_create_augroup('highlightYank', { clear = true }),
+	callback = function ()
+		vim.highlight.on_yank()
+	end
+})
 
 -- snippets
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])

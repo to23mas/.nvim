@@ -47,13 +47,12 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
+	tailwindcss = {
+		Lua = {
+			filetypes = {"htmldajngo", "html", "nette"},
+		},
+	},
 }
-
-
-require'lspconfig'.html.setup {
-	filetypes = {'html', 'htmldjango'}
-}
-
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -70,4 +69,7 @@ mason_lspconfig.setup_handlers {
 			settings = servers[server_name],
 		}
 	end,
+}
+require('lspconfig').tailwindcss.setup{
+	filetypes = {"htmldajngo", "html", "nette"},
 }

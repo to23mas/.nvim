@@ -27,8 +27,8 @@ vim.cmd.set('list')
 vim.cmd.set('nocursorline')
 
 vim.cmd.set('cindent')
-vim.cmd.set('ignorecase')
-vim.cmd.set('smartcase')
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.cmd.set('nowrap')
 

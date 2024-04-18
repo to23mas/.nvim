@@ -48,6 +48,9 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
+	tailwindcss = {
+		filetypes = { "html", "htmldjango" },
+	},
 }
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
@@ -127,3 +130,6 @@ vim.diagnostic.config {
 		border = "rounded"
 	}
 }
+require('lspconfig').tailwindcss.setup({
+  filetypes = { "htmldjango", "html" },
+})
