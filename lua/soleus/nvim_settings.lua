@@ -1,5 +1,13 @@
+-- -- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = false
+
+vim.opt.showmode = false
 -- stops moving text on error
 vim.opt.signcolumn = 'yes:1'
+
+-- Set highlight on search, but clear on pressing <Esc> in normal mode
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- tab width
 vim.opt.tabstop = 4
@@ -21,12 +29,12 @@ vim.opt.scrolloff = 10
 vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 
-vim.cmd.set('listchars=tab:⤑⤑,trail:⍿,nbsp:⎵')
-vim.cmd.set('list')
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '⍿', nbsp = '⎵' }
 
-vim.cmd.set('nocursorline')
-
-vim.cmd.set('cindent')
+vim.opt.cursorline = true
+--vim.cmd.set('cindent')
+vim.opt.cindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 

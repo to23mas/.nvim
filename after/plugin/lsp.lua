@@ -36,11 +36,6 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-	-- clangd = {},
-	-- gopls = {},
-	-- pyright = {},
-	-- rust_analyzer = {},
-	-- tsserver = {},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
@@ -53,6 +48,9 @@ local servers = {
 		},
 	},
 }
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -70,6 +68,19 @@ mason_lspconfig.setup_handlers {
 		}
 	end,
 }
+
 require('lspconfig').tailwindcss.setup{
 	filetypes = {"htmldajngo", "html", "nette"},
+}
+--
+-- -- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+vim.diagnostic.config {
+	float = {
+		border = "rounded"
+	}
 }

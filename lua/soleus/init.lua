@@ -1,9 +1,6 @@
 require'soleus.nvim_settings'
 require'soleus.nvim_remap'
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
 if not vim.loop.fs_stat(lazypath) then
@@ -102,6 +99,7 @@ require'lazy'.setup({
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-path',
 			'rafamadriz/friendly-snippets',
 		},
 	},

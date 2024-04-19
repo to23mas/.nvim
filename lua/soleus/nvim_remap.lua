@@ -1,5 +1,5 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 --EX, so ,w
 --FILES mapping
@@ -45,32 +45,30 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- next greatest remap ever
 vim.keymap.set({"n", "v"}, "<leader>y", [["*y]])
 vim.keymap.set({"n", "v"}, "<leader>Y", [["+y]])
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<M-k>", "<cmd>cn<CR>")
+vim.keymap.set("n", "<M-j>", "<cmd>cp<CR>")
 
+-- there was some problem with terminal mapping for c-space. but dont remember anymore??
 vim.keymap.set('i', "<C-@>", "<C-Space>")
-
-
-vim.keymap.set({'n', 'v', 'i'}, '<C-S-i>',
-	function ()
-		local width = vim.api.nvim_win_get_width(0)
-		vim.api.nvim_win_set_width(0, width + 10)
-	end,
-	{ desc='enlarge window'})
 
 vim.keymap.set({'n', 'v', 'i'}, '<C-S-d>',
 	function ()
 		local width = vim.api.nvim_win_get_width(0)
+		vim.api.nvim_win_set_width(0, width - 10)
+	end,
+	{ desc='window -'})
+
+vim.keymap.set({'n', 'v', 'i'}, '<C-S-l>',
+	function ()
+		local width = vim.api.nvim_win_get_width(0)
 		vim.api.nvim_win_set_width(0, width + 10)
 	end,
-	{ desc='enlarge window'})
+	{ desc='window +'})
 
 -- yanking highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
