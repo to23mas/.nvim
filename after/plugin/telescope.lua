@@ -4,8 +4,8 @@ vim.keymap.set('n','<leader>fr', '<cmd>Telescope oldfiles<cr>', {desc='open [r]e
 
 vim.keymap.set('n', '<leader>gb', function () builtin.git_branches() end, {desc= "[g]it branches" })
 vim.keymap.set('n', '<leader>gf', function () builtin.git_files() end, {desc= "[g]it files" })
-vim.keymap.set('n', '<leader>gd', function () builtin.git_files() end, {desc= "[d]iagnostics" })
-vim.keymap.set('n', '<leader>gs', function () builtin.git_files() end, {desc= "git [s]tatus" })
+vim.keymap.set('n', '<leader>gd', function () builtin.diagnostics() end, {desc= "[s]earch diagnostics" })
+vim.keymap.set('n', '<leader>gl', function()  builtin.lsp_definitions({ jump_type = 'vsplit' }) end, {desc= 'jump to split'})
 
 vim.keymap.set('n', '<leader>pf', function () builtin.find_files() end, {desc= "[f]ind files" })
 vim.keymap.set('n', '<leader>pF', function () builtin.find_files({ hidden=true, no_ignore=true }) end, {desc= "[F]ind all files" })

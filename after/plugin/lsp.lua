@@ -11,6 +11,9 @@ local on_attach = function(_, bufnr)
 	nmap('<leader>la', vim.lsp.buf.code_action, 'language server code action')
 	vim.keymap.set({'n', 'i'}, '<C-k>', vim.lsp.buf.signature_help, opts)
 	nmap('gd', vim.lsp.buf.definition, 'Goto Definition')
+
+	vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
+
 	nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
 	nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
 	nmap('gD', vim.lsp.buf.type_definition, 'Type Definition')
