@@ -35,7 +35,7 @@ require'lazy'.setup({
 	'nvim-lualine/lualine.nvim',
 
 	---telescope
-	{'nvim-telescope/telescope.nvim', tag = '0.1.2'},
+	{'nvim-telescope/telescope.nvim', branch = '0.1.x'},
 
 	---harpoon
 	'ThePrimeagen/harpoon',
@@ -63,11 +63,17 @@ require'lazy'.setup({
 	},
 
 	--- comments
+	-- {
+	-- 	'numToStr/Comment.nvim',
+	-- 	config = function()
+	-- 		require('Comment').setup()
+	-- 	end
+	-- },
+
+	--- oil
 	{
-		'numToStr/Comment.nvim',
-		config = function()
-			require('Comment').setup()
-		end
+		'stevearc/oil.nvim',
+		opts = {},
 	},
 
 	---git

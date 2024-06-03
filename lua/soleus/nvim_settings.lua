@@ -41,5 +41,6 @@ vim.opt.smartcase = true
 
 vim.cmd.set('nowrap')
 
+
 -- latte
 vim.cmd.au('BufRead,BufNewFile *.latte set filetype=html')

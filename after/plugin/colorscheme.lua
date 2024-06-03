@@ -126,7 +126,7 @@ require('kanagawa').setup({
 })
 
 -- setup must be called before loading
-vim.cmd("colorscheme ayu-mirage")
--- vim.cmd.colorscheme'catppuccin'
+-- vim.cmd("colorscheme ayu-mirage")
+vim.cmd.colorscheme'catppuccin'
 -- vim.cmd.highlight('LineNr guifg=#bfa867')
 

@@ -70,6 +70,12 @@ vim.keymap.set({'n', 'v', 'i'}, '<C-S-l>',
 	end,
 	{ desc='window +'})
 
+vim.keymap.set('n', '<leader>li',
+	function ()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	end,
+	{ desc='inlay hint'})
+
 -- yanking highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight when yanking text",
