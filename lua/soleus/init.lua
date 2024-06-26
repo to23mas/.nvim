@@ -30,6 +30,8 @@ require'lazy'.setup({
 	'rebelot/kanagawa.nvim',
 	'Shatur/neovim-ayu',
 	{ 'catppuccin/nvim', as = 'catppuccin', priority = 1000},
+	{ 'NTBBloodbath/sweetie.nvim' },
+	{ 'Mofiqul/adwaita.nvim' },
 
 	---lualine
 	'nvim-lualine/lualine.nvim',
