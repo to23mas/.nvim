@@ -550,3 +550,5 @@ IS_WEBAPI_RUNNING
 WEBAPI
 webapi
 psqlConnection
+mongo
+pymongo
