@@ -574,3 +574,13 @@ endblock
 psql
 staticmethod
 staticmethod
+sortable
+authorizer
+logamnager
+mixins
+csrf
+JSONB
+JSONB
+fkey
+Rimmer
+Verifier
