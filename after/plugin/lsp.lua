@@ -3,17 +3,19 @@ local on_attach = function(_, bufnr)
 		if desc then
 			desc = 'LSP: ' .. desc
 		end
-
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 	end
 
+	nmap('<leader>wl', function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, '[W]orkspace [L]ist Folders')
+
+	nmap('<leader>lr', vim.lsp.buf.rename, 'language server rename')
+	vim.keymap.set('n', '<leader>lR', '<cmd>LspRestart<cr>', {desc='reload lsp' })
 	nmap('<leader>lr', vim.lsp.buf.rename, 'language server rename')
 	nmap('<leader>la', vim.lsp.buf.code_action, 'language server code action')
 	vim.keymap.set({'n', 'i'}, '<C-k>', vim.lsp.buf.signature_help, opts)
 	nmap('gd', vim.lsp.buf.definition, 'Goto Definition')
-
-	vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
-
 	nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
 	nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
 	nmap('gD', vim.lsp.buf.type_definition, 'Type Definition')
@@ -21,15 +23,10 @@ local on_attach = function(_, bufnr)
 	nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
 
 	-- See `:help K` for why this keymap
-	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, { desc = 'signature help' })
-
 	-- Lesser used LSP functionality
 	-- nmap('<leader>D', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 	-- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
 	-- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-	nmap('<leader>wl', function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, '[W]orkspace [L]ist Folders')
 
 	-- Create a command `:Format` local to the LSP buffer
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -38,10 +35,16 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
+	html = {
+		filetypes = {"htmldajngo", "html"},
+	},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
+			diagnostics = {
+				global = { 'vim' }
+			}
 		},
 	},
 }
@@ -68,6 +71,10 @@ mason_lspconfig.setup_handlers {
 
 require('lspconfig').tailwindcss.setup{
 	filetypes = {"htmldajngo", "html", "nette"},
+}
+
+require('lspconfig').html.setup{
+	filetypes = {"htmldajngo", "html"},
 }
 --
 -- -- Diagnostic keymaps
