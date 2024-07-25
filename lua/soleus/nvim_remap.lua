@@ -10,7 +10,7 @@ vim.keymap.set({'n','v'}, '<leader>pr', '<Cmd>Rex<Cr>', {desc='netrw cursor on f
 vim.keymap.set('n', '<leader>fn', '<cmd>enew<cr>', {desc='[n]ew file' })
 
 --WINDOWS mapping
-vim.keymap.set('n', '<leader>wv', "<C-w>v<C-w>l",{desc="split [v]erticaly" })
+vim.keymap.set('n', '<leader>wv', "<C-w>v",{desc="split [v]erticaly" })
 vim.keymap.set('n', '<leader>wd', "<C-w><C-q>",{desc="close window" })
 vim.keymap.set('n', '<leader>ww', "<C-w><C-w>",{desc="switch [w]indows" })
 
