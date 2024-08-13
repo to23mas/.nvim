@@ -611,3 +611,4 @@ DIRS
 dirs
 staticfiles
 fieldsets
+validator
