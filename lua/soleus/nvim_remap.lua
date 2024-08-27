@@ -50,8 +50,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>y", [["*y]])
 vim.keymap.set({"n", "v"}, "<leader>Y", [["+y]])
 
-vim.keymap.set("n", "<leader>J", "<cmd>cn<CR>")
-vim.keymap.set("n", "<leader>K", "<cmd>cp<CR>") -- there was some problem with terminal mapping for c-space. but dont remember anymore??
+vim.keymap.set("n", "<C-h>", "<cmd>cn<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>cp<CR>")
 vim.keymap.set('i', "<C-@>", "<C-Space>")
 
 vim.keymap.set({'n', 'v', 'i'}, '<C-S-d>',
