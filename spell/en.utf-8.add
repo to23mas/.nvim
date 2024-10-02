@@ -545,7 +545,6 @@ gmail
 TokenVerifier
 matcher
 IS_WEBAPI_RUNNING
-WEBAPI
 webapi
 psqlConnection
 mongo
@@ -557,8 +556,6 @@ mixins
 contrib
 args
 kwargs
-attrs
-attrs
 attrs
 checkboxes
 enums
@@ -612,7 +609,6 @@ dirs
 staticfiles
 fieldsets
 validator
-Openapi
 openapi
 lette
 analyse
@@ -633,4 +629,4 @@ datetime
 ceil
 dhcp
 pylint
-pylint
+eslint
