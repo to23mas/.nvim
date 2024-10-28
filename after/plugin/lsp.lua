@@ -39,12 +39,12 @@ local servers = {
 		filetypes = {"htmldajngo", "html"},
 	},
 	lua_ls = {
-		Lua = {
-			workspace = { checkThirdParty = false },
-			telemetry = { enable = false },
-			diagnostics = {
-				global = { 'vim' }
-			}
+		settings = {
+			Lua = {
+				diagnostics = {
+					global = { 'vim' }
+				}
+			},
 		},
 	},
 }
@@ -54,7 +54,6 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
-
 mason_lspconfig.setup {
 	ensure_installed = vim.tbl_keys(servers),
 }
@@ -75,6 +74,16 @@ require('lspconfig').tailwindcss.setup{
 
 require('lspconfig').html.setup{
 	filetypes = {"htmldajngo", "html"},
+}
+
+require('lspconfig').lua_ls.setup{
+	settings = {
+		Lua = {
+			diagnostics = {
+				global = { 'vim' }
+			}
+		}
+	}
 }
 --
 -- -- Diagnostic keymaps

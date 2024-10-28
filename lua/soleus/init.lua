@@ -13,6 +13,14 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	}
 end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.go", "*.js", "*.ts", "*.php" },
+	callback = function()
+		vim.lsp.buf.format({ async = false })
+	end,
+})
+
 vim.opt.rtp:prepend(lazypath)
 
 require'lazy'.setup({
@@ -96,7 +104,6 @@ require'lazy'.setup({
 		dependencies = {
 			{ 'williamboman/mason.nvim', config = true },
 			'williamboman/mason-lspconfig.nvim',
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
 		},
 	},
@@ -114,7 +121,7 @@ require'lazy'.setup({
 	},
 
 	---clojure
-	{ 'Olical/conjure', ft = { "clojure", "fennel" } },
+	-- { 'Olical/conjure', ft = { "clojure", "fennel" } },
 
 	---spell checking
 	'kamykn/spelunker.vim',
