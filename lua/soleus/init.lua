@@ -14,12 +14,12 @@ if not vim.loop.fs_stat(lazypath) then
 	}
 end
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.go", "*.js", "*.ts", "*.php" },
-	callback = function()
-		vim.lsp.buf.format({ async = false })
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = { "*.go", "*.js", "*.ts", "*.php" },
+-- 	-- callback = function()
+-- 	-- 	vim.lsp.buf.format({ async = false })
+-- 	-- end,
+-- })
 
 vim.opt.rtp:prepend(lazypath)
 

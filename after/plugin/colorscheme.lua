@@ -127,9 +127,9 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 -- vim.cmd.colorscheme'ofirkai'
--- vim.cmd.colorscheme'ofirkai'
--- vim.cmd.colorscheme 'ayu-mirage'
+-- vim.cmd.colorscheme'ayu-mirage'
 -- vim.cmd.colorscheme'catppuccin'
 -- vim.cmd.colorscheme'rose-pine'
+vim.cmd.colorscheme'kanagawa'
 -- vim.cmd.highlight('LineNr guifg=#bfa867')
 

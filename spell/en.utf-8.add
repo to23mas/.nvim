@@ -639,3 +639,11 @@ iputils
 addr
 addr
 bugreport
+OPENSEARCH
+opensearch
+formatter
+Syslog
+Syslog
+syslog
+hideable
+inet
