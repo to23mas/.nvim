@@ -16,9 +16,9 @@ end
 
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 -- 	pattern = { "*.go", "*.js", "*.ts", "*.php" },
--- 	-- callback = function()
--- 	-- 	vim.lsp.buf.format({ async = false })
--- 	-- end,
+-- 	callback = function()
+-- 		vim.lsp.buf.format({ async = false })
+-- 	end,
 -- })
 
 vim.opt.rtp:prepend(lazypath)
