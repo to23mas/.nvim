@@ -647,3 +647,8 @@ Syslog
 syslog
 hideable
 inet
+repl
+tmuxinator
+flatpak
+oidc
+oidc
