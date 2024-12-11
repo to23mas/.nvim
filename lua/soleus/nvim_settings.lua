@@ -1,8 +1,8 @@
 -- -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
-vim.opt.showmode = false
 -- stops moving text on error
+vim.opt.showmode = false
 vim.opt.signcolumn = 'yes:1'
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
@@ -34,13 +34,11 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '⍿', nbsp = '⎵' }
 
 vim.opt.cursorline = true
---vim.cmd.set('cindent')
 vim.opt.cindent = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.cmd.set('nowrap')
-
 
 -- latte
 vim.cmd.au('BufRead,BufNewFile *.latte set filetype=html')
