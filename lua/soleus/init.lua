@@ -1,5 +1,6 @@
 require'soleus.nvim_settings'
 require'soleus.nvim_remap'
+require'soleus.functions'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
