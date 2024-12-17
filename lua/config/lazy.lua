@@ -21,28 +21,8 @@ vim.g.maplocalleader = ' '
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		-- lsp
-		{
-			'neovim/nvim-lspconfig',
-			dependencies = {
-				{ 'williamboman/mason.nvim', config = true },
-				{ 'williamboman/mason-lspconfig.nvim' },
-				{ 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-			},
-		},
-
-	{
-		'hrsh7th/nvim-cmp',
-		dependencies = {
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-path',
-			'rafamadriz/friendly-snippets',
-		},
-	},
-
 		-- colorschemes
+		{ 'williamboman/mason-lspconfig.nvim' },
 		{ 'rose-pine/neovim', name = 'rose-pine' },
 		{ 'catppuccin/nvim', as = 'catppuccin' },
 		{ 'Shatur/neovim-ayu' },

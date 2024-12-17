@@ -1,7 +1,6 @@
--- https://github.com/hrsh7th/nvim-cmpreturn 
-return {{
+-- https://github.com/hrsh7th/nvim-cmpreturn
+return { {
 	'hrsh7th/nvim-cmp',
-
 	dependencies = {
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
@@ -10,9 +9,34 @@ return {{
 		'rafamadriz/friendly-snippets',
 	},
 	config = function()
+		-- See `:help cmp`
 		local cmp = require 'cmp'
 		local luasnip = require 'luasnip'
 		luasnip.config.setup {}
+
+
+		luasnip.config.set_config {
+			history = true,
+			updateevents = "TextChanged,TextChangedI"
+		}
+		require("luasnip.loaders.from_vscode").lazy_load()
+		vim.keymap.set({ "i", "s" }, "<c-k>", function()
+			if luasnip.jumpable() then
+				luasnip.jump()
+			end
+		end, { silent = true })
+
+		vim.keymap.set({ "i", "s" }, "<c-j>", function()
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			end
+		end, { silent = true })
+
+		vim.keymap.set({ "i", "s" }, "<c-l>", function()
+			if luasnip.choice_active(-1) then
+				luasnip.choice_active(1)
+			end
+		end, { silent = true })
 
 		cmp.setup {
 			snippet = {
@@ -26,7 +50,6 @@ return {{
 				['<C-d>'] = cmp.mapping.scroll_docs(-4),
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
 				['<C-Space>'] = cmp.mapping.complete {},
-
 				['<CR>'] = cmp.mapping.confirm {
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = false,
@@ -56,5 +79,5 @@ return {{
 				{ name = 'path' },
 			},
 		}
-	end
-}}
+	end,
+} }

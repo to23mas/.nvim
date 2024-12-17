@@ -42,17 +42,22 @@ set.smartcase = true
 -- latte
 vim.cmd.au('BufRead,BufNewFile *.latte set filetype=html')
 
+k.set('n', '<space><space>x', '<cmd>source %<CR>')
+k.set('n', '<space><space>x', '<cmd>source %<CR>')
+k.set("n", "<space>x", ":.lua<CR>")
+k.set("v", "<space>x", ":lua<CR>")
+
 k.set('i', "<C-@>", "<C-Space>")
 k.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- k.set({'n','v'}, '<leader>pe', '<Cmd>Ex<Cr>', {desc='netrw'})
-k.set('n', '<leader>fn', '<cmd>enew<cr>', {desc='[n]ew file' })
+k.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = '[n]ew file' })
 
-k.set({'n','v'}, '<leader>pr', '<Cmd>Rex<Cr>', {desc='netrw cursor on file'})
-k.set('n', '<leader>wv', "<C-w>v",{desc="split [v]erticaly" })
-k.set('n', '<leader>wd', "<C-w><C-q>",{desc="close window" })
-k.set('n', '<leader>ww', "<C-w><C-w>",{desc="switch [w]indows" })
+k.set({ 'n', 'v' }, '<leader>pr', '<Cmd>Rex<Cr>', { desc = 'netrw cursor on file' })
+k.set('n', '<leader>wv', "<C-w>v", { desc = "split [v]erticaly" })
+k.set('n', '<leader>wd', "<C-w><C-q>", { desc = "close window" })
+k.set('n', '<leader>ww', "<C-w><C-w>", { desc = "switch [w]indows" })
 
-k.set('n', '<leader>tt', '<cmd>terminal fish<cr>', {desc='[t]erminal' })
+k.set('n', '<leader>tt', '<cmd>terminal fish<cr>', { desc = '[t]erminal' })
 
 k.set("v", "K", ":m '<-2<CR>gv=gv")
 k.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -63,23 +68,23 @@ k.set("n", "N", "Nzzzv")
 
 k.set("x", "<leader>p", [["_dP]])
 
-k.set({"n", "v"}, "<leader>y", [["+y]])
+k.set({ "n", "v" }, "<leader>y", [["+y]])
 
 k.set("n", "<C-h>", "<cmd>cn<CR>")
 k.set("n", "<C-l>", "<cmd>cp<CR>")
 -- k.set('i', "<C-@>", "<C-Space>")
 
 vim.keymap.set('n', '<leader>li',
-	function ()
+	function()
 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 	end,
-	{ desc='inlay hint'})
+	{ desc = 'inlay hint' })
 
 -- yanking highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight when yanking text",
 	group = vim.api.nvim_create_augroup('highlightYank', { clear = true }),
-	callback = function ()
+	callback = function()
 		vim.highlight.on_yank()
 	end
 })
