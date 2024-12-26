@@ -41,15 +41,13 @@ set.smartcase = true
 
 -- latte
 vim.cmd.au('BufRead,BufNewFile *.latte set filetype=html')
-
-k.set('n', '<space><space>x', '<cmd>source %<CR>')
+k.set('t', '<esc><esc>', '<c-\\><c-n>')
 k.set('n', '<space><space>x', '<cmd>source %<CR>')
 k.set("n", "<space>x", ":.lua<CR>")
 k.set("v", "<space>x", ":lua<CR>")
 
 k.set('i', "<C-@>", "<C-Space>")
 k.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
--- k.set({'n','v'}, '<leader>pe', '<Cmd>Ex<Cr>', {desc='netrw'})
 k.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = '[n]ew file' })
 
 k.set({ 'n', 'v' }, '<leader>pr', '<Cmd>Rex<Cr>', { desc = 'netrw cursor on file' })

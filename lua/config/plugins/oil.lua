@@ -1,9 +1,9 @@
 -- https://github.com/stevearc/oil.nvim
-return {{
+return { {
 	'stevearc/oil.nvim',
 	opts = {},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function ()
+	config = function()
 		local oil = require('oil')
 		oil.setup {
 			-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
@@ -43,8 +43,8 @@ return {{
 			keymaps = {
 				["g?"] = { "actions.show_help", mode = "n" },
 				["<CR>"] = "actions.select",
-				["<C-v>"] = { "actions.select", opts = { vertical = true } },
-				["<C-s>"] = { "actions.select", opts = { horizontal = true } },
+				["<C-s>"] = { "actions.select", opts = { vertical = true } },
+				["<C-h>"] = { "actions.select", opts = { horizontal = true } },
 				["<C-p>"] = "actions.preview",
 				["<C-l>"] = "actions.refresh",
 				["-"] = { "actions.parent", mode = "n" },
@@ -77,4 +77,4 @@ return {{
 			vim.keymap.set("n", "<leader>pe", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		}
 	end
-}}
+} }
