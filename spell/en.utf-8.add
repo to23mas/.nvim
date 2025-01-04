@@ -663,3 +663,5 @@ multigrep
 live_multigrep
 Floaterminal
 buftype
+filetype
+filetype

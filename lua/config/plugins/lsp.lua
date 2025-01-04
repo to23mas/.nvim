@@ -28,9 +28,16 @@ return { {
 		vim.api.nvim_create_autocmd('LspAttach', {
 			callback = function(args)
 				local client = vim.lsp.get_client_by_id(args.data.client_id)
-				if not client then return end
+				if not client then
+					return
+				end
+
 				if client.supports_method('textDocument/formatting') then
 					-- Format the current buffer on save
+					local disabled_filetypes = { 'html' }
+					if vim.tbl_contains(disabled_filetypes, vim.bo.ft) then
+						return
+					end
 					vim.api.nvim_create_autocmd('BufWritePre', {
 						buffer = args.buf,
 						callback = function()
@@ -79,6 +86,8 @@ return { {
 
 		local servers = {
 			lua_ls = {},
+			tailwindcss = {
+			},
 		}
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -101,5 +110,16 @@ return { {
 		-- -- Diagnostic keymaps
 		vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 		vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+		require("lspconfig").tailwindcss.setup({
+			filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+			root_dir = require("lspconfig.util").root_pattern(
+				'tailwind.config.js',
+				'tailwind.config.cjs',
+				'postcss.config.js',
+				'package.json',
+				'.git'
+			),
+		})
 	end
 } }
