@@ -12,6 +12,7 @@ return { {
 }, {
 	'neovim/nvim-lspconfig',
 	dependencies = {
+		{ 'j-hui/fidget.nvim', opts = {} },
 		{
 			"folke/lazydev.nvim",
 			ft = "lua", -- only load on lua files
@@ -34,7 +35,7 @@ return { {
 
 				if client.supports_method('textDocument/formatting') then
 					-- Format the current buffer on save
-					local disabled_filetypes = { 'html' }
+					local disabled_filetypes = { 'html', 'latte', 'php' }
 					if vim.tbl_contains(disabled_filetypes, vim.bo.ft) then
 						return
 					end
