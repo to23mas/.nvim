@@ -26,28 +26,30 @@ return { {
 		},
 	},
 	config = function()
-		vim.api.nvim_create_autocmd('LspAttach', {
-			callback = function(args)
-				local client = vim.lsp.get_client_by_id(args.data.client_id)
-				if not client then
-					return
-				end
-
-				if client.supports_method('textDocument/formatting') then
-					-- Format the current buffer on save
-					local disabled_filetypes = { 'html', 'latte', 'php' }
-					if vim.tbl_contains(disabled_filetypes, vim.bo.ft) then
-						return
-					end
-					vim.api.nvim_create_autocmd('BufWritePre', {
-						buffer = args.buf,
-						callback = function()
-							vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-						end,
-					})
-				end
-			end,
-		})
+		-- vim.api.nvim_create_autocmd('LspAttach', {
+		-- 	callback = function(args)
+		-- 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		-- 		if not client then
+		-- 			return
+		-- 		end
+		--
+		-- 		if client.supports_method('textDocument/formatting') then
+		-- 			-- Format the current buffer on save
+		-- 			local disabled_filetypes = { 'html', 'latte', 'php', 'json' }
+		-- 			-- local disabled_filetypes = { 'json' }
+		-- 			-- local disabled_filetypes = {}
+		-- 			if vim.tbl_contains(disabled_filetypes, vim.bo.ft) then
+		-- 				return
+		-- 			end
+		-- 			vim.api.nvim_create_autocmd('BufWritePre', {
+		-- 				buffer = args.buf,
+		-- 				callback = function()
+		-- 					vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+		-- 				end,
+		-- 			})
+		-- 		end
+		-- 	end,
+		-- })
 
 		local on_attach = function(_, bufnr)
 			local nmap = function(keys, func, desc)
@@ -92,7 +94,6 @@ return { {
 		}
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 		-- Ensure the servers above are installed
 		local mason_lspconfig = require 'mason-lspconfig'
 		mason_lspconfig.setup {
