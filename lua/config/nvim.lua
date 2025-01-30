@@ -78,6 +78,12 @@ vim.keymap.set('n', '<leader>li',
 	end,
 	{ desc = 'inlay hint' })
 
+k.set("n", "<leader>lB",
+	function()
+		vim.cmd("!~/.local/share/nvim/mason/bin/phpactor index:build --reset")
+	end,
+	{ noremap = true, desc = "re[B]uild phpactor's index" })
+
 -- yanking highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight when yanking text",
