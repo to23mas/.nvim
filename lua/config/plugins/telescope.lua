@@ -33,6 +33,8 @@ return { {
 
 		k.set('n', '<leader>fo', '<cmd>Telescope oldfiles<cr>', { desc = 'open [r]ecent file' })
 		k.set('n', '<leader>gb', function() builtin.git_branches() end, { desc = "[g]it branches" })
+		k.set('n', '<leader>ps', function () builtin.grep_string({ search = vim.fn.input("search: ") }) end, {desc= "[S]search string / grep" })
+
 
 		k.set('n', '<leader>gf', function() builtin.git_files() end, { desc = "[g]it files" })
 		k.set('n', '<leader>gd', function() builtin.diagnostics() end, { desc = "[s]earch diagnostics" })
@@ -47,6 +49,7 @@ return { {
 		k.set('n', '<leader>pm', function() builtin.marks() end, { desc = "marks" })
 
 
-		require 'config.extensions.telescope.multigrep'.setup()
+		-- multigrep extension
+		-- require 'config.extensions.telescope.multigrep'.setup()
 	end
 } }

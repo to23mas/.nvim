@@ -44,8 +44,8 @@ local live_multigrep = function(opts)
 	}):find()
 end
 
-M.setup = function()
-	vim.keymap.set('n', '<leader>ps', live_multigrep)
-end
+-- M.setup = function()
+-- 	vim.keymap.set('n', '<leader>ps', live_multigrep)
+-- end
 
 return M
