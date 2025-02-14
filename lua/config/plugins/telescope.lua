@@ -33,8 +33,14 @@ return { {
 
 		k.set('n', '<leader>fo', '<cmd>Telescope oldfiles<cr>', { desc = 'open [r]ecent file' })
 		k.set('n', '<leader>gb', function() builtin.git_branches() end, { desc = "[g]it branches" })
-		k.set('n', '<leader>ps', function () builtin.grep_string({ search = vim.fn.input("search: ") }) end, {desc= "[S]search string / grep" })
 
+		k.set('n', '<leader>ps', function()
+			builtin.grep_string(require('telescope.themes').get_ivy({ search = vim.fn.input("search: ") }))
+		end, { desc = "[S]earch string" })
+
+		k.set('n', '<leader>pS', function()
+			builtin.grep_string(require('telescope.themes').get_ivy({ hidden = true, no_ignore = true, search = vim.fn.input("search: ") }))
+		end, { desc = "[S]earch string Global" })
 
 		k.set('n', '<leader>gf', function() builtin.git_files() end, { desc = "[g]it files" })
 		k.set('n', '<leader>gd', function() builtin.diagnostics() end, { desc = "[s]earch diagnostics" })

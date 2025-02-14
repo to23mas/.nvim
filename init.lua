@@ -27,3 +27,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 -- vim.cmd [[hi @function.builtin.lua guifg=yellow]]
 -- vim.cmd [[hi @keyword.function.lua guifg=pink]]
+
+-- vim.api.nvim_set_keymap('n', '==', 'gg=G', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '==', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
+
