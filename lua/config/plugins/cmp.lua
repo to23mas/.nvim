@@ -34,7 +34,20 @@ return { {
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
 		},
+		-- documentation = { auto_show = true, auto_show_delay_ms = 100 },
 		completion = {
+			documentation = { auto_show = true, auto_show_delay_ms = 100 },
+			menu = {
+				-- Don't automatically show the completion menu
+				auto_show = true,
+
+				draw = {
+					columns = {
+						{ "label",     "label_description", gap = 1 },
+						{ "kind_icon", "kind",              "source_name", gap = 1 }
+					},
+				}
+			},
 			list = {
 				selection = {
 					preselect = false,
