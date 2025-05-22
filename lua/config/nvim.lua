@@ -50,12 +50,10 @@ k.set('i', "<C-@>", "<C-Space>")
 k.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 k.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = '[n]ew file' })
 
-k.set({ 'n', 'v' }, '<leader>pr', '<Cmd>Rex<Cr>', { desc = 'netrw cursor on file' })
+k.set({ 'n', 'v' }, '<leader>pr', '<Cmd>Ex<Cr>', { desc = 'netrw cursor on file' })
 k.set('n', '<leader>wv', "<C-w>v", { desc = "split [v]erticaly" })
 k.set('n', '<leader>wd', "<C-w><C-q>", { desc = "close window" })
 k.set('n', '<leader>ww', "<C-w><C-w>", { desc = "switch [w]indows" })
-
-k.set('n', '<leader>tt', '<cmd>terminal fish<cr>', { desc = '[t]erminal' })
 
 k.set("v", "K", ":m '<-2<CR>gv=gv")
 k.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -96,3 +94,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- snippets
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]])
 --vim.keymap.set("n", "<leader>alf", "ifile_put_contents('file.json', json_decode($));<Esc>==F$a")
+--
+
+
+local function open_my_file()
+	-- Change this path to your desired file
+	local filepath = '/home/micka/Documents/logmanager/web/web/i18n/shared-translation/en.json'
+	vim.cmd('vsplit ' .. vim.fn.fnameescape(filepath))
+	vim.api.nvim_win_set_cursor(0, { 3, 0 })
+	vim.api.nvim_feedkeys('O', 'n', false)
+
+	 vim.api.nvim_feedkeys('"', 'i', false)
+
+  -- Paste yanked text into insert mode: <C-r>"
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-r>"', true, false, true), 'i', false)
+
+  -- Insert closing quote
+  vim.api.nvim_feedkeys('": "@"', 'i', false)
+end
+
+-- Map <leader>tt to the function
+vim.keymap.set('n', '<leader>tt', open_my_file, { noremap = true, silent = true })
