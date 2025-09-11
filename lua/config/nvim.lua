@@ -19,6 +19,8 @@ set.shiftwidth = 4
 set.smartindent = false
 set.number = true
 set.relativenumber = true
+
+
 -- line numbers
 cmd('numberwidth=4')
 cmd('spelllang=en_us')
@@ -30,7 +32,7 @@ set.termguicolors = true
 set.scrolloff = 10
 set.updatetime = 50
 set.splitright = true
--- set.colorcolumn = "80"
+set.colorcolumn = "120"
 
 set.list = true
 set.listchars = { tab = '» ', trail = '⍿', nbsp = '⎵' }
