@@ -91,15 +91,15 @@ return { {
 		vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 		vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-		require("lspconfig").tailwindcss.setup({
-			filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
-			root_dir = require("lspconfig.util").root_pattern(
-				'tailwind.config.js',
-				'tailwind.config.cjs',
-				'postcss.config.js',
-				'package.json',
-				'.git'
-			),
-		})
+		-- require("lspconfig").tailwindcss.setup({
+		-- 	filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+		-- 	root_dir = require("lspconfig.util").root_pattern(
+		-- 		'tailwind.config.js',
+		-- 		'tailwind.config.cjs',
+		-- 		'postcss.config.js',
+		-- 		'package.json',
+		-- 		'.git'
+		-- 	),
+		-- })
 	end
 } }
