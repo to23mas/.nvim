@@ -31,6 +31,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 
 vim.api.nvim_set_keymap('n', '==', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
 
-require('lspconfig').clangd.setup{
-  cmd = { "/run/current-system/sw/bin/clangd" },  -- path to Nix-installed clangd
-}
+-- require('lspconfig').clangd.setup{
+--   cmd = { "/run/current-system/sw/bin/clangd" },  -- path to Nix-installed clangd
+-- }
