@@ -24,6 +24,7 @@ cmd('numberwidth=4')
 cmd('spelllang=en_us')
 cmd('nospell')
 cmd('nowrap')
+-- cmd('nowrapscan')
 
 set.incsearch = true
 set.termguicolors = true
@@ -38,6 +39,11 @@ set.cursorline = true
 set.cindent = true
 set.ignorecase = true
 set.smartcase = true
+
+-- completion options
+vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert", "popup" }
+vim.g.copilot_no_tab_map = true
+vim.keymap.set('i', '<Tab>', 'copilot#Accept("\\<Tab>")', { expr = true, replace_keycodes = false })
 
 -- latte
 vim.cmd.au('BufRead,BufNewFile *.latte set filetype=html')
