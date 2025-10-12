@@ -68,11 +68,11 @@ return { {
 		nmap('<leader>la', vim.lsp.buf.code_action, 'language server code action')
 		vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, opts)
 		nmap('gd', vim.lsp.buf.definition, 'Goto Definition')
-		nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
 		nmap('gi', vim.lsp.buf.implementation, 'Goto Implementation')
 		nmap('gD', vim.lsp.buf.type_definition, 'Type Definition')
-		nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
-		nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+		-- nmap('gr', require('telescope.builtin').lsp_references, 'Goto References')
+		-- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+		-- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
 
 		-- See `:help K` for why this keymap
 		-- Lesser used LSP functionality
