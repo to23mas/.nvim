@@ -11,7 +11,8 @@ return {{
 
       k.set("n", '<leader>P', "<cmd>FzfLua<cr>", {desc="Fzf"})
       k.set("n", "<leader>pf", fzf.files, { desc = "Fzf Files" })
-      k.set("n", "<leader>ps", fzf.live_grep, { desc = "Fzf Live Grep" })
+      k.set("n", "<leader>ps", fzf.grep, { desc = "Fzf Grep" })
+      k.set("n", "<leader>pS", fzf.live_grep, { desc = "Fzf Live Grep" })
       k.set("n", "<leader>pb", fzf.buffers, { desc = "Fzf Buffers" })
       k.set("n", "<leader>ph", fzf.help_tags, { desc = "Fzf Help Tags" })
       k.set('n', '<leader>gf', fzf.git_files, { desc = "[g]it files" })
