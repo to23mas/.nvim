@@ -9,6 +9,7 @@ return {{
                 ["up"]   = "prev-history",
                 ["ctrl-p"] = "up",   -- move selection up
                 ["ctrl-n"] = "down", -- move selection down
+                ["ctrl-q"] = "select-all+accept",
             },
         },
         fzf_opts = {
