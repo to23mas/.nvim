@@ -91,10 +91,9 @@ return { {
         vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
         vim.keymap.set('n', 'gL', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
-        require('lspconfig').lua_ls.setup {
+        vim.lsp.config('lua_ls', {
             cmd = { "lua-language-server" },
-            -- rest of your config...
-        }
+        })
 
         -- require("lspconfig").tailwindcss.setup({
         -- 	filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
