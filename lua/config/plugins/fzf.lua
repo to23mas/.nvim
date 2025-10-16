@@ -2,7 +2,11 @@
 return {{
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
+    opts = {
+        fzf_opts = {
+            ['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-history',
+        }
+    },
     config = function(_, opts)
       local fzf = require("fzf-lua")
       fzf.setup(opts)
@@ -10,15 +14,30 @@ return {{
       local k = vim.keymap
 
       k.set("n", '<leader>P', "<cmd>FzfLua<cr>", {desc="Fzf"})
-      k.set("n", "<leader>pf", fzf.files, { desc = "Fzf Files" })
-      k.set("n", "<leader>ps", fzf.grep, { desc = "Fzf Grep" })
-      k.set("n", "<leader>pS", fzf.live_grep, { desc = "Fzf Live Grep" })
-      k.set("n", "<leader>pb", fzf.buffers, { desc = "Fzf Buffers" })
+      k.set("n", "<leader>ps", fzf.live_grep, { desc = "Fzf Live Grep" })
       k.set("n", "<leader>ph", fzf.help_tags, { desc = "Fzf Help Tags" })
       k.set('n', '<leader>gf', fzf.git_files, { desc = "[g]it files" })
-      k.set("n", "<leader>pa", function()
-          fzf.files({ git_ignore = false })
+
+      k.set("n", "<leader>pf", fzf.files, { desc = "Fzf Files" })
+      k.set("n", "<leader>pF", function()
+          fzf.files({
+              git_ignore = false,
+              hidden = true,
+              no_ignore = true,
+              no_ignore_parent = true
+          })
       end, { desc = "Fzf All Files" })
+
+      k.set("n", "<leader>pb", fzf.buffers, { desc = "Fzf Buffers" })
+      k.set("n", "<leader>pS", function()
+          fzf.live_grep({
+              git_ignore = false,
+              hidden = true,
+              no_ignore = true,
+              no_ignore_parent = true
+          })
+      end, { desc = "FzfLua: grep All" })
+
 
       k.set("n", "gr", fzf.lsp_references, { desc = "Goto References" })
       k.set("n", "<leader>ds", fzf.lsp_document_symbols, { desc = "Document Symbols" })
