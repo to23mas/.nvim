@@ -45,22 +45,22 @@ return { {
             ft = { "markdown", "Avante" },
         },
     },
-    config = function()
-      local opts = { provider = "copilot" }
-
-      local openai_api_url = os.getenv("OPENAI_API_CHAT_COMPLETIONS")
-      if openai_api_url then
-        opts.provider = "openai"
-        opts.openai = {
-          endpoint = openai_api_url,
-          model = "anthropic:claude-3-5-sonnet",
-          timeout = 30000,
-          temperature = 0,
-          max_tokens = 4096,
-          ["local"] = false,
-        }
-      end
-
-      require("avante").setup(opts)
-    end,
+    -- config = function()
+    --   local opts = { provider = "copilot" }
+    --
+    --   local openai_api_url = os.getenv("OPENAI_API_CHAT_COMPLETIONS")
+    --   if openai_api_url then
+    --     opts.provider = "openai"
+    --     opts.openai = {
+    --       endpoint = openai_api_url,
+    --       model = "anthropic:claude-3-5-sonnet",
+    --       timeout = 30000,
+    --       temperature = 0,
+    --       max_tokens = 4096,
+    --       ["local"] = false,
+    --     }
+    --   end
+    --
+    --   require("avante").setup(opts)
+    -- end,
 }}
