@@ -22,10 +22,10 @@ vim.g.maplocalleader = ' '
 require("lazy").setup({
 	spec = {
 		-- colorschemes
-		{ 'williamboman/mason-lspconfig.nvim' },
-		{ 'rose-pine/neovim',                 name = 'rose-pine' },
-		{ 'catppuccin/nvim',                  as = 'catppuccin' },
-		{ 'rebelot/kanagawa.nvim',            config = function() vim.cmd.colorscheme('kanagawa-wave') end },
+        { 'williamboman/mason-lspconfig.nvim' },
+        { 'rose-pine/neovim',                 name = 'rose-pine' },
+        { 'catppuccin/nvim',                  as = 'catppuccin' },
+		{ 'rebelot/kanagawa.nvim'},
 		{ 'Shatur/neovim-ayu' },
 
 		-- dependencies/plugins without config
@@ -42,3 +42,5 @@ require("lazy").setup({
 	-- automatically check for plugin updates
 	checker = { enabled = false },
 })
+
+vim.cmd.colorscheme('kanagawa')
