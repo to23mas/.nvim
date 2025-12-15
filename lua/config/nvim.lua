@@ -60,6 +60,7 @@ k.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = '[n]ew file' })
 
 k.set({ 'n', 'v' }, '<leader>pr', '<Cmd>Ex<Cr>', { desc = 'netrw cursor on file' })
 k.set('n', '<leader>wv', "<C-w>v", { desc = "split [v]erticaly" })
+k.set('n', '<C-c><C-d>', '<C-w><C-q>', { desc = "Close buffer/window" })
 k.set('n', '<leader>wd', "<C-w><C-q>", { desc = "close window" })
 k.set('n', '<leader>ww', "<C-w><C-w>", { desc = "switch [w]indows" })
 

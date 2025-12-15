@@ -643,7 +643,6 @@ OPENSEARCH
 opensearch
 formatter
 Syslog
-Syslog
 syslog
 hideable
 inet
@@ -658,12 +657,9 @@ keymap
 debounce
 live_multigrep
 multigrep
-multigrep
-multigrep
 live_multigrep
 Floaterminal
 buftype
-filetype
 filetype
 prec
 hubspot
@@ -686,3 +682,5 @@ deletable
 xslt
 encodings
 vmware
+naja
+gitgut
