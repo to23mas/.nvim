@@ -56,7 +56,6 @@ k.set("v", "<space>x", ":lua<CR>")
 
 k.set('i', "<C-@>", "<C-Space>")
 k.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-k.set('n', '<leader>fn', '<cmd>enew<cr>', { desc = '[n]ew file' })
 
 k.set({ 'n', 'v' }, '<leader>pr', '<Cmd>Ex<Cr>', { desc = 'netrw cursor on file' })
 k.set('n', '<leader>wv', "<C-w>v", { desc = "split [v]erticaly" })
